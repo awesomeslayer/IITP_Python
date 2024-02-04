@@ -1,0 +1,7 @@
+targets:
+- .
+all: false
+long: true
+verbose: true
+recursive: true
+human_readable: true

@@ -1,0 +1,7 @@
+targets:
+- .
+all_files: false
+long_format: true
+verbose: false
+recursive: false
+human_readable: true

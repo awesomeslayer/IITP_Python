@@ -1,0 +1,8 @@
+all: false
+files:
+- foo
+- bar
+human_readable: false
+l: false
+recursive: true
+verbosity: 2

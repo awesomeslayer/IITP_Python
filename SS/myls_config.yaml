@@ -1,0 +1,7 @@
+
+targets: ['HW1.ipynb', 'HW2.ipynb']
+all: True
+long: True
+verbose: True
+recursive: True
+human_readable: True

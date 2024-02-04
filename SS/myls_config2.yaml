@@ -1,0 +1,7 @@
+
+targets: ['-foo']
+all: True
+long: True
+verbose: False
+recursive: False
+human_readable: True

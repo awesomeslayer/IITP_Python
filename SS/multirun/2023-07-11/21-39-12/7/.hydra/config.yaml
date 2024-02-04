@@ -1,0 +1,7 @@
+all: true
+files:
+- ..
+human_readable: true
+l: false
+recursive: true
+verbosity: 2

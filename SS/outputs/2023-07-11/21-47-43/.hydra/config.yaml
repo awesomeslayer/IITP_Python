@@ -1,0 +1,9 @@
+targets:
+- HW1.ipynb
+- HW2.ipynb
+all: true
+long: true
+verbose: true
+recursive: true
+human_readable: true
+help: false

@@ -1,0 +1,7 @@
+targets:
+- -foo
+all: true
+long: true
+verbose: false
+recursive: false
+human_readable: true
