@@ -25,13 +25,19 @@ def draw_line(picture, s, t):
         plt.imshow(cv.line(image, (0, s), (width - 1, s + t), (64, 0, 0), lineThickness))
     return image
 
-def hough_transform(img, draw=0):
+def hough_transform(img,threshold_ratio=0.9, draw=0):
     obraz = fast_hough_transform(img)
-    rez, (s, t) = find_max_value(obraz)
+    max_intensity, _ = find_max_value(obraz)
+
+    threshold = max_intensity * threshold_ratio
+
+    lines = np.argwhere(obraz >= threshold)
 
     if draw != 0:
-        img_with_line = draw_line(img, s, t)
-        plt.imshow(img_with_line)
-        return rez, obraz
+        image_with_lines = img.copy()
+        for s, t in lines:
+            image_with_lines = draw_line(image_with_lines, s, t)
+        plt.imshow(image_with_lines)
+        return max_intensity, obraz
     else:
-        return rez, obraz
+        return max_intensity, obraz
