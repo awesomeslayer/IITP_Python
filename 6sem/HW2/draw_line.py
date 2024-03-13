@@ -27,8 +27,9 @@ def draw_line(picture, s, t):
 
 def hough_transform(img,threshold_ratio=0.9, draw=0):
     obraz = fast_hough_transform(img)
+    print('after fast_hough')
     max_intensity, _ = find_max_value(obraz)
-
+    print('after find_max')
     threshold = max_intensity * threshold_ratio
 
     lines = np.argwhere(obraz >= threshold)
@@ -37,7 +38,7 @@ def hough_transform(img,threshold_ratio=0.9, draw=0):
         image_with_lines = img.copy()
         for s, t in lines:
             image_with_lines = draw_line(image_with_lines, s, t)
-        plt.imshow(image_with_lines)
-        return max_intensity, obraz
+        # plt.imshow(image_with_lines)
+        return max_intensity, obraz, image_with_lines
     else:
         return max_intensity, obraz

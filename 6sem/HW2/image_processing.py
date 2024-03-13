@@ -4,6 +4,7 @@ import numpy as np
 
 def read_image(FOLDER, name):
     final_img = cv.imread(FOLDER + name, cv.IMREAD_GRAYSCALE)
+    print('after final_img',final_img.shape)
     h, w = final_img.shape[:2]
     
     new_h = 2 ** int(np.ceil(np.log2(h)))
