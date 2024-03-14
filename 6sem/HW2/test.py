@@ -29,6 +29,24 @@ def compare_rgb_images_with_lines(image1, image2, threshold=0.7):
     correlation = cv2.matchTemplate(image1, image2, cv2.TM_CCOEFF_NORMED)[0][0]
     return correlation >= threshold
 
+def fill_blanks_rows(array_2d):
+    nonzero_rows = np.nonzero(np.sum(array_2d, axis=1))[0]
+
+    if len(nonzero_rows) > 0:
+        for row in nonzero_rows:
+            value = array_2d[row, np.nonzero(array_2d[row])[0][0]]
+            array_2d[row][array_2d[row] == 0] = value
+    return array_2d
+
+
+def fill_blanks_cols(array_2d):
+    nonzero_cols = np.nonzero(np.sum(array_2d, axis=0))[0]
+    if len(nonzero_cols) > 0:
+        for col in nonzero_cols:
+            value = array_2d[np.nonzero(array_2d[:, col])[0][0], col]
+            array_2d[:, col][array_2d[:, col] == 0] = value
+    return array_2d
+
 #In these tests we compare the lines from the original picture 
 #with the lines drawn after the function hough_transform
 class TestClass:
@@ -95,17 +113,20 @@ class TestClass:
     def test_intermittent_2_small_holes(self):
         img_new = read_image(FOLDER, 'intermittent.png')
         _, _, line_img= hough_transform(img_new, draw=1)
-        assert(compare_images_with_lines(img_new, line_img) == True)
+        img = fill_blanks_rows(img_new)
+        assert(compare_images_with_lines(img, line_img) == True)
     
     def test_intermittent_4_wide_holes(self):
         img_new = read_image(FOLDER, 'intermittent2.png')
         _, _, line_img= hough_transform(img_new, draw=1)
-        assert(compare_images_with_lines(img_new, line_img) == True)
+        img = fill_blanks_rows(img_new)
+        assert(compare_images_with_lines(img, line_img) == True)
         
     def test_intermittent_vertical(self):
         img_new = read_image(FOLDER, 'intermittent3.png')
         _, _, line_img= hough_transform(img_new, draw=1)
-        assert(compare_images_with_lines(img_new, line_img) == True)
+        img = fill_blanks_cols(img_new)
+        assert(compare_images_with_lines(img, line_img) == True)
 
     def test_wide(self):
         img_new = read_image(FOLDER, 'wide_line.png')
@@ -128,7 +149,12 @@ class TestClass:
         assert(compare_rgb_images_with_lines(img_new, line_img) == True) 
 
     def test_jpg(self):
-        img_new = read_image(FOLDER, 'test.jpg')
+        img_new = read_image(FOLDER, 'horizontal_line.jpg')
+        _, _, line_img= hough_transform(img_new, draw=1)
+        assert(compare_rgb_images_with_lines(img_new, line_img) == True) 
+    
+    def test_jpeg(self):
+        img_new = read_image(FOLDER, 'horizontal_line.jpeg')
         _, _, line_img= hough_transform(img_new, draw=1)
         assert(compare_rgb_images_with_lines(img_new, line_img) == True) 
     
