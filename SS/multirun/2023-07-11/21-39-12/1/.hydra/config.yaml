@@ -1,7 +1,0 @@
-all: false
-files:
-- ..
-human_readable: false
-l: false
-recursive: true
-verbosity: 2
