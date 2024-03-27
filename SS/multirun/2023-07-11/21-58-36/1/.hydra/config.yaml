@@ -1,7 +1,0 @@
-targets:
-- .
-all: true
-long: true
-verbose: true
-recursive: true
-human_readable: false
