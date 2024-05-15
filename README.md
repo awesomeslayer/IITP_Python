@@ -57,3 +57,13 @@ To lint the code using Nox, execute the following command:
 nox -rs lint
 ```
 This command will run the linting tasks defined in the Noxfile and ensure code style consistency.
+
+##Documentation
+
+This command will run the generation of documentation in HTML in _build directory.
+
+```bash
+nox -rs docs
+```
+
+##You can see more nox session in noxfile.py
