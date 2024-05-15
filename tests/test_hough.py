@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from src.gigagor.draw_line import draw_line, hough_transform
+from src.gigagor.draw_line import hough_transform
 from src.gigagor.image_processing import read_image
 
 FOLDER = "images/"
@@ -60,107 +60,107 @@ class TestClass:
     def test_horizontal(self):
         img_new = read_image(FOLDER, "horizontal_line.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_vertical(self):
         img_new = read_image(FOLDER, "vertical_line.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_small_hor(self):
         img_new = read_image(FOLDER, "horizontal_line_3x3.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_small_ver(self):
         img_new = read_image(FOLDER, "vertical_line_3x3.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
-    def test_long_hor(self):
+    def test_long_hor_1(self):
         img_new = read_image(FOLDER, "horizontal_line_10x500.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
-    def test_long_hor(self):
+    def test_long_hor_2(self):
         img_new = read_image(FOLDER, "vertical_line_500x10.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_many_lines(self):
         img_new = read_image(FOLDER, "lines.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_many_rotated_lines(self):
         img_new = read_image(FOLDER, "image_2.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_blured(self):
         img_new = read_image(FOLDER, "blured.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
-    def test_rotated(self):
+    def test_rotated_1(self):
         img_new = read_image(FOLDER, "rotated.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_rectangle(self):
         img_new = read_image(FOLDER, "rectangle1.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
-    def test_rotated(self):
+    def test_rotated_2(self):
         img_new = read_image(FOLDER, "rotated.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_intermittent_2_small_holes(self):
         img_new = read_image(FOLDER, "intermittent.png")
         _, _, line_img = hough_transform(img_new, draw=1)
         img = fill_blanks_rows(img_new)
-        assert compare_images_with_lines(img, line_img) == True
+        assert compare_images_with_lines(img, line_img) is True
 
     def test_intermittent_4_wide_holes(self):
         img_new = read_image(FOLDER, "intermittent2.png")
         _, _, line_img = hough_transform(img_new, draw=1)
         img = fill_blanks_rows(img_new)
-        assert compare_images_with_lines(img, line_img) == True
+        assert compare_images_with_lines(img, line_img) is True
 
     def test_intermittent_vertical(self):
         img_new = read_image(FOLDER, "intermittent3.png")
         _, _, line_img = hough_transform(img_new, draw=1)
         img = fill_blanks_cols(img_new)
-        assert compare_images_with_lines(img, line_img) == True
+        assert compare_images_with_lines(img, line_img) is True
 
     def test_wide(self):
         img_new = read_image(FOLDER, "wide_line.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_images_with_lines(img_new, line_img) == True
+        assert compare_images_with_lines(img_new, line_img) is True
 
     def test_rgb_1(self):
         img_new = read_image(FOLDER, "rgb1.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_rgb_images_with_lines(img_new, line_img) == True
+        assert compare_rgb_images_with_lines(img_new, line_img) is True
 
     def test_rgb_2(self):
         img_new = read_image(FOLDER, "rgb2.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_rgb_images_with_lines(img_new, line_img) == True
+        assert compare_rgb_images_with_lines(img_new, line_img) is True
 
     def test_rgb_3(self):
         img_new = read_image(FOLDER, "rgb3.png")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_rgb_images_with_lines(img_new, line_img) == True
+        assert compare_rgb_images_with_lines(img_new, line_img) is True
 
     def test_jpg(self):
         img_new = read_image(FOLDER, "horizontal_line.jpg")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_rgb_images_with_lines(img_new, line_img) == True
+        assert compare_rgb_images_with_lines(img_new, line_img) is True
 
     def test_jpeg(self):
         img_new = read_image(FOLDER, "horizontal_line.jpeg")
         _, _, line_img = hough_transform(img_new, draw=1)
-        assert compare_rgb_images_with_lines(img_new, line_img) == True
+        assert compare_rgb_images_with_lines(img_new, line_img) is True
