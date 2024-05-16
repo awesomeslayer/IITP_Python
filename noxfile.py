@@ -63,7 +63,7 @@ def black(session: Session) -> None:
     session.run("black", *args)
 
 
-@session(python=PYTHON_VERSIONS)
+@session(python="3.9")
 def mypy(session: Session) -> None:
     """Type-check using mypy."""
     args = session.posargs or locations
