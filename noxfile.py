@@ -67,6 +67,7 @@ def black(session: Session) -> None:
 def mypy(session: Session) -> None:
     """Type-check using mypy."""
     args = session.posargs or locations
+    session.run_always("poetry", "install", external=True)
     session.install("mypy")
     session.run("mypy", *args)
 
@@ -91,7 +92,7 @@ def xdoctest(session: Session) -> None:
 @session(python="3.9")
 def docs(session: Session) -> None:
     """Build the documentation."""
-    session.install("sphinx", "sphinx-autodoc-typehints")
+    session.install(".", "sphinx", "sphinx-autodoc-typehints")
     session.run("sphinx-build", "docs", "docs/_build")
 
 

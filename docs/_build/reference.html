@@ -35,11 +35,173 @@
 <h1>Reference<a class="headerlink" href="#reference" title="Link to this heading">¶</a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#fast-hough-transform-console" id="id1">fast_hough_transform.console</a></p></li>
+<li><p><a class="reference internal" href="#module-fast_hough_transform.console" id="id1">fast_hough_transform.console</a></p></li>
+<li><p><a class="reference internal" href="#module-fast_hough_transform.draw_line" id="id2">fast_hough_transform.draw_line</a></p></li>
+<li><p><a class="reference internal" href="#module-fast_hough_transform.hough_transform" id="id3">fast_hough_transform.hough_transform</a></p></li>
+<li><p><a class="reference internal" href="#module-fast_hough_transform.image_processing" id="id4">fast_hough_transform.image_processing</a></p></li>
+<li><p><a class="reference internal" href="#module-fast_hough_transform.main" id="id5">fast_hough_transform.main</a></p></li>
 </ul>
 </nav>
-<section id="fast-hough-transform-console">
-<h2>fast_hough_transform.console<a class="headerlink" href="#fast-hough-transform-console" title="Link to this heading">¶</a></h2>
+<section id="module-fast_hough_transform.console">
+<span id="fast-hough-transform-console"></span><h2>fast_hough_transform.console<a class="headerlink" href="#module-fast_hough_transform.console" title="Link to this heading">¶</a></h2>
+<p>Command-line interface.</p>
+</section>
+<section id="module-fast_hough_transform.draw_line">
+<span id="fast-hough-transform-draw-line"></span><h2>fast_hough_transform.draw_line<a class="headerlink" href="#module-fast_hough_transform.draw_line" title="Link to this heading">¶</a></h2>
+<p>Draw line module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fast_hough_transform.draw_line.draw_line">
+<span class="sig-prename descclassname"><span class="pre">fast_hough_transform.draw_line.</span></span><span class="sig-name descname"><span class="pre">draw_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fast_hough_transform.draw_line.draw_line" title="Link to this definition">¶</a></dt>
+<dd><p>Draws a line on the input image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>np.ndarray</em>) – The input image as a NumPy array.</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – The starting position of the line.</p></li>
+<li><p><strong>thickness</strong> (<em>int</em>) – The thickness of the line.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – The height of the image.</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – The width of the image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified image with the line drawn on it.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fast_hough_transform.draw_line.hough_transform">
+<span class="sig-prename descclassname"><span class="pre">fast_hough_transform.draw_line.</span></span><span class="sig-name descname"><span class="pre">hough_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fast_hough_transform.draw_line.hough_transform" title="Link to this definition">¶</a></dt>
+<dd><p>Performs the Hough transform on the input image to detect lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>np.ndarray</em>) – The input image as a NumPy array.</p></li>
+<li><p><strong>threshold_ratio</strong> (<em>float</em>) – The threshold ratio for line detection. Defaults to 0.9.</p></li>
+<li><p><strong>draw_lines</strong> (<em>int</em>) – If not 0, the function will return the image with detected lines drawn on it. Defaults to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing the maximum
+intensity found in the Hough space and either the Hough space array alone or along with the image
+with detected lines drawn on it.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[float, np.ndarray] or Tuple[float, np.ndarray, np.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fast_hough_transform.hough_transform">
+<span id="fast-hough-transform-hough-transform"></span><h2>fast_hough_transform.hough_transform<a class="headerlink" href="#module-fast_hough_transform.hough_transform" title="Link to this heading">¶</a></h2>
+<p>Hough transform module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fast_hough_transform.hough_transform.fast_hough_transform">
+<span class="sig-prename descclassname"><span class="pre">fast_hough_transform.hough_transform.</span></span><span class="sig-name descname"><span class="pre">fast_hough_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Picture</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fast_hough_transform.hough_transform.fast_hough_transform" title="Link to this definition">¶</a></dt>
+<dd><p>Performs a fast Hough transform on the input picture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Picture</strong> (<em>np.ndarray</em>) – The input picture.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The transformed picture.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fast_hough_transform.hough_transform.find_max_value">
+<span class="sig-prename descclassname"><span class="pre">fast_hough_transform.hough_transform.</span></span><span class="sig-name descname"><span class="pre">find_max_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picture</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fast_hough_transform.hough_transform.find_max_value" title="Link to this definition">¶</a></dt>
+<dd><p>Finds the maximum value in the input picture and its corresponding coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>picture</strong> (<em>np.ndarray</em>) – The input picture.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The maximum value and its coordinates.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[float, Tuple[float, float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fast_hough_transform.hough_transform.find_point">
+<span class="sig-prename descclassname"><span class="pre">fast_hough_transform.hough_transform.</span></span><span class="sig-name descname"><span class="pre">find_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fast_hough_transform.hough_transform.find_point" title="Link to this definition">¶</a></dt>
+<dd><p>Finds a point given specific parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Parameter n.</p></li>
+<li><p><strong>s</strong> (<em>float</em>) – Parameter s.</p></li>
+<li><p><strong>t</strong> (<em>float</em>) – Parameter t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The calculated point.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fast_hough_transform.hough_transform.merge_histograms">
+<span class="sig-prename descclassname"><span class="pre">fast_hough_transform.hough_transform.</span></span><span class="sig-name descname"><span class="pre">merge_histograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fast_hough_transform.hough_transform.merge_histograms" title="Link to this definition">¶</a></dt>
+<dd><p>Merges two histograms into one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h1</strong> (<em>np.ndarray</em>) – The first histogram.</p></li>
+<li><p><strong>h2</strong> (<em>np.ndarray</em>) – The second histogram.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The merged histogram.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fast_hough_transform.image_processing">
+<span id="fast-hough-transform-image-processing"></span><h2>fast_hough_transform.image_processing<a class="headerlink" href="#module-fast_hough_transform.image_processing" title="Link to this heading">¶</a></h2>
+<p>Image processing module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fast_hough_transform.image_processing.read_image">
+<span class="sig-prename descclassname"><span class="pre">fast_hough_transform.image_processing.</span></span><span class="sig-name descname"><span class="pre">read_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">FOLDER</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fast_hough_transform.image_processing.read_image" title="Link to this definition">¶</a></dt>
+<dd><p>Reads an image from the specified folder with the given name and performs resizing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>FOLDER</strong> (<em>str</em>) – The folder path where the image is located.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the image file.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The resized image as a NumPy array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fast_hough_transform.main">
+<span id="fast-hough-transform-main"></span><h2>fast_hough_transform.main<a class="headerlink" href="#module-fast_hough_transform.main" title="Link to this heading">¶</a></h2>
+<p>Main module.</p>
 </section>
 </section>
 
