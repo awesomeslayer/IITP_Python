@@ -40,6 +40,9 @@ codecov = "^2.1.13"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry]
+documentation = "https://hypermodern-python.readthedocs.io"
+
 # click
 [tool.poetry.scripts]
 fast-hough-transform = "fast_hough_transform.console:main"
