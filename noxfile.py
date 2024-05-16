@@ -16,7 +16,7 @@ PYTHON_VERSIONS = ["3.11", "3.10", "3.9"]
 def tests(session: Session) -> None:
     """Run the test suite."""
     args = session.posargs or ["--cov"]
-    session.install("opencv-python", "matplotlib", "numpy", "click")
+    session.install("opencv-python", "matplotlib", "numpy", "click", "pytest")
     session.run("pytest", *args)
 
 
