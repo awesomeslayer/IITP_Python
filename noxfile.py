@@ -88,8 +88,16 @@ def xdoctest(session: Session) -> None:
     session.run("python", "-m", "xdoctest", package, *args)
 
 
-@nox.session(python="3.9")
+@session(python="3.9")
 def docs(session: Session) -> None:
     """Build the documentation."""
     session.install("sphinx", "sphinx-autodoc-typehints")
     session.run("sphinx-build", "docs", "docs/_build")
+
+
+@session(python="3.9")
+def coverage(session: Session) -> None:
+    """Upload coverage data."""
+    session.install("coverage[toml]", "codecov")
+    session.run("coverage", "xml", "--fail-under=0")
+    session.run("codecov", *session.posargs)
